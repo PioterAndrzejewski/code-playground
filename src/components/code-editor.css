@@ -1,5 +1,4 @@
 .editor-wrapper {
-  flex-basis: 33%;
   height: 100%;
   width: calc(100% - 10px);
 }
