@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/code-playground/static/css/main.4403faa6.css",
+    "main.js": "/code-playground/static/js/main.c0ba43d0.js",
+    "index.html": "/code-playground/index.html",
+    "main.4403faa6.css.map": "/code-playground/static/css/main.4403faa6.css.map",
+    "main.c0ba43d0.js.map": "/code-playground/static/js/main.c0ba43d0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4403faa6.css",
+    "static/js/main.c0ba43d0.js"
+  ]
+}
