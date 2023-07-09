@@ -10,7 +10,7 @@ function App() {
   const { loadCells } = useActions();
 
   useEffect(() => {
-    const storeFromLS = localStorage.getItem("cellsStore");
+    const storeFromLS = localStorage.getItem("code-playground-store");
     if (storeFromLS) {
       const loadedState = JSON.parse(storeFromLS);
       loadCells(loadedState);

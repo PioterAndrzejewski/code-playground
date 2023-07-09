@@ -1,5 +1,5 @@
 import { CellsState } from "../cellTypes";
 
 export const saveToLS = (state: CellsState) => {
-  localStorage.setItem("cellsStore", JSON.stringify(state));
+  localStorage.setItem("code-playground-store", JSON.stringify(state));
 };
