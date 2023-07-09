@@ -1,13 +1,17 @@
 .code-section {
   height: 100%;
   width: 100%;
-  margin: 0 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 10px;
+  display: inline-flex;
+  margin: 0 10px 0 20px;
+  gap: 5px;
 }
 
 .top-bar {
   text-align: left;
+}
+
+.rest {
+  min-width: 200px;
+  flex-basis: 33%;
+  flex-grow: 1;
 }

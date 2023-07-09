@@ -3,7 +3,7 @@ import { Resizable, ResizableProps } from "re-resizable";
 import "./resizable.css";
 
 interface ResizableBoxProps {
-  direction: "horizontal-left" | "horizontal-right" | "vertical" | "noresize";
+  direction: "horizontal" | "vertical";
   children: JSX.Element;
 }
 
@@ -30,7 +30,7 @@ const ResizableBox: React.FC<ResizableBoxProps> = ({ direction, children }) => {
   }, []);
 
   let resizableProps: ResizableProps = {};
-  if (direction === "horizontal-left") {
+  if (direction === "horizontal") {
     resizableProps = {
       enable: {
         top: false,
@@ -43,22 +43,11 @@ const ResizableBox: React.FC<ResizableBoxProps> = ({ direction, children }) => {
         topLeft: false,
       },
       className: "resize-horizontal",
-    };
-  }
-
-  if (direction === "horizontal-right") {
-    resizableProps = {
-      enable: {
-        top: false,
-        right: false,
-        bottom: false,
-        left: true,
-        topRight: false,
-        bottomRight: false,
-        bottomLeft: false,
-        topLeft: false,
+      maxWidth: "40%",
+      defaultSize: {
+        width: "33%",
+        height: "100%",
       },
-      className: "resize-vertical",
     };
   }
 

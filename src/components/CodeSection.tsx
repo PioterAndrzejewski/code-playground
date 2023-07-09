@@ -5,9 +5,15 @@ import "./code-section.css";
 function CodeSection() {
   return (
     <section className='code-section'>
-      <CodeEditor language='html' />
-      <CodeEditor language='css' />
-      <CodeEditor language='javascript' />
+      <ResizableBox direction='horizontal'>
+        <CodeEditor language='html' />
+      </ResizableBox>
+      <ResizableBox direction='horizontal'>
+        <CodeEditor language='css' />
+      </ResizableBox>
+      <div className='rest'>
+        <CodeEditor language='javascript' />
+      </div>
     </section>
   );
 }

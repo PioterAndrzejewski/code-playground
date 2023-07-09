@@ -1,4 +1,6 @@
 .editor-wrapper {
   height: 100%;
   width: calc(100% - 10px);
+  flex-grow: 1;
+  flex-shrink: 1;
 }
