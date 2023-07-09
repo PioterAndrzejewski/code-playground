@@ -1,18 +1,9 @@
+import { useTypedSelector } from "../hooks/useTypedSelector";
 import "./preview.css";
 
-interface PreviewProps {
-  htmlCode: string;
-  cssCode: string;
-  jsCode: string;
-  error: string;
-}
+const Preview: React.FC = () => {
+  const { error, data } = useTypedSelector((state) => state.cells);
 
-const Preview: React.FC<PreviewProps> = ({
-  htmlCode,
-  cssCode,
-  jsCode,
-  error,
-}) => {
   const htmlToInject = `
   <!DOCTYPE html>
   <head>
@@ -20,17 +11,18 @@ const Preview: React.FC<PreviewProps> = ({
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      ${cssCode}
+      ${data.css.content}
     </style>
   </head>
   <body>
-    ${htmlCode}
+    ${data.html.content}
     <script>
-    ${jsCode}
+    ${data.javascript.content}
     </script>
   </body>
   </html>
   `;
+
   return (
     <div className='preview-wrapper'>
       <iframe

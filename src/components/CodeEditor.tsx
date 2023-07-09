@@ -1,7 +1,7 @@
-import { useState } from "react";
 import MonacoEditor from "@monaco-editor/react";
-import prettier from "prettier/standalone";
-import jsparser from "prettier/parser-babel";
+import { useActions } from "../hooks/useActions";
+import { useTypedSelector } from "../hooks/useTypedSelector";
+import { CellsState } from "../state";
 import "./code-editor.css";
 
 interface CodeEditorProps {
@@ -9,14 +9,16 @@ interface CodeEditorProps {
 }
 
 const CodeEditor: React.FC<CodeEditorProps> = ({ language }) => {
-  const [value, setValue] = useState("");
+  const { updateCell } = useActions();
+  const { data } = useTypedSelector((state) => state.cells);
 
   return (
     <div className='editor-wrapper'>
       <div className='top-bar'>{language}</div>
       <MonacoEditor
+        defaultValue={data[language].content}
         height='calc(100% - 30px)'
-        onChange={(newVal) => setValue(newVal || "")}
+        onChange={(newVal) => updateCell(language, newVal || "")}
         language={language}
         theme='dark'
         options={{

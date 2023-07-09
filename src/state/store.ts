@@ -1,7 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import thunk from "redux-thunk";
-import reducers from "./reducers";
+import cellsReducer from "./reducers/cellsReducer";
+import { CellsState } from "./cellTypes";
 
 export const store = configureStore({
-  reducer: reducers,
+  reducer: {
+    cells: cellsReducer,
+  },
 });
+
+export type RootState = {
+  cells: CellsState;
+};
