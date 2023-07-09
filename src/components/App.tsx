@@ -19,7 +19,6 @@ function App() {
   }, []);
   return (
     <div className='App'>
-      <header>Options</header>
       <main className='playground-wrapper'>
         <ResizableBox direction='vertical'>
           <CodeSection />
