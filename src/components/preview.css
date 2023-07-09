@@ -1,0 +1,42 @@
+.preview-wrapper {
+  flex-grow: 1;
+  margin: 10px 20px;
+  overflow: hidden;
+}
+
+.preview-wrapper::after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.preview-wrapper:hover::after {
+  display: block;
+}
+
+.preview-wrapper iframe {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+.preview-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  color: red;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.preview-error h1 {
+  margin: 20px 0;
+  font-weight: bold;
+  font-size: 24px;
+}
