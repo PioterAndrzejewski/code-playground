@@ -11,5 +11,8 @@ export interface CellsState {
   data: {
     [key: string]: Cell;
   };
-  bundle: string | null;
+  bundle: {
+    code: string | null;
+    err: string | null;
+  };
 }

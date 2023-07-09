@@ -10,18 +10,39 @@ const initialState: CellsState = {
   data: {
     html: {
       type: "html",
-      content: "<div>Hello world</div>",
+      content: `<p class="text">There is always div with id Root in the beginning of HTML file</p>`,
     },
     css: {
       type: "css",
-      content: "div {background-color: #aaa}",
+      content: `.text {
+        display: block;
+        text-align: center;
+        border: 1px solid black;
+        margin: 0 50px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 8px 8px 14px #b19b9b5b;
+    }
+    
+    .heading {
+        margin-top: 50px;
+        text-align: center;
+        font-family: Arial, sans-sefir;
+    }`,
     },
     javascript: {
       type: "javascript",
-      content: "console.log('it works')",
+      content: `import ReactDOM from 'react-dom';
+
+      const App = () => <h1>Hello</h1>
+      
+      ReactDOM.render(<App />, document.querySelector("#root"));`,
     },
   },
-  bundle: null,
+  bundle: {
+    code: "",
+    err: "",
+  },
 };
 
 const cellsReducer = produce(
@@ -48,7 +69,7 @@ const cellsReducer = produce(
         state = {
           ...state,
           loading: false,
-          bundle: action.payload.bundle.code,
+          bundle: action.payload.bundle,
         };
         return state;
       default:

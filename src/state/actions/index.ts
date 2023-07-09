@@ -19,7 +19,7 @@ export interface CellsState {
 
 export interface LoadCellsAction {
   type: ActionType.LOAD_CELLS;
-  payload: CellsState;
+  payload: { cells: CellsState };
 }
 
 export interface BundleStartAction {

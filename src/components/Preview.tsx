@@ -1,8 +1,10 @@
+import { useEffect, useRef } from "react";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import "./preview.css";
 
 const Preview: React.FC = () => {
-  const { error, data } = useTypedSelector((state) => state.cells);
+  const iFrame = useRef<any>();
+  const { data, bundle } = useTypedSelector((state) => state.cells);
 
   const htmlToInject = `
   <!DOCTYPE html>
@@ -18,27 +20,53 @@ const Preview: React.FC = () => {
     </style>
   </head>
   <body>
+      <div id="root"></div>
     ${data.html.content}
     <script>
-    ${data.javascript.content}
+    const handleError = (err) => {
+      const root = document.querySelector('#root');
+      root.innerHTML = '<div style="color: red;"><h2>Runtime error</h2>' + err + '</div>';
+      console.error(err)
+    };
+    window.addEventListener('error', event => {
+      event.preventDefault();
+      handleError(event.message);
+    }, false)
+    window.addEventListener('message', event => {
+      try {
+        eval(event.data);
+      } catch (err) {
+        handleError(err);
+      }
+    }, false)
     </script>
   </body>
   </html>
   `;
 
+  useEffect(() => {
+    if (iFrame.current) {
+      iFrame.current.srcdoc = htmlToInject;
+    }
+    setTimeout(() => {
+      iFrame.current.contentWindow.postMessage(bundle.code, "*");
+    }, 50);
+  }, [bundle, htmlToInject]);
+
   return (
     <div className='preview-wrapper'>
-      <iframe
-        srcDoc={htmlToInject}
-        title='preview-window'
-        sandbox='allow-scripts allow-modals'
-      />
-      {error && (
+      {bundle.err ? (
         <div className='preview-error'>
           <h1>Bundling error</h1>
-
-          <p>{error.replace("index.js", "users code")}</p>
+          <p>{bundle.err.replace("index.js", "users code")}</p>
         </div>
+      ) : (
+        <iframe
+          srcDoc={htmlToInject}
+          title='preview-window'
+          sandbox='allow-scripts allow-modals'
+          ref={iFrame}
+        />
       )}
     </div>
   );

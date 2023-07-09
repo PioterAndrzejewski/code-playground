@@ -1,7 +1,9 @@
 .preview-wrapper {
+  position: relative;
   flex-grow: 1;
   margin: 10px 20px;
   overflow: hidden;
+  background-color: white;
 }
 
 .preview-wrapper::after {
