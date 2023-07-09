@@ -1,11 +1,11 @@
 
 
 <!-- PROJECT LOGO -->
-![image](https://github.com/PioterAndrzejewski/code-playground/assets/109315248/5a7985ef-76c8-4310-9f73-cac8f7785f73)
+![image](https://github.com/PioterAndrzejewski/code-playground/assets/109315248/302faa63-9ced-477b-a3ab-f8a9d5d28c32)
 
 <br />
 <div align="center">
-<a href="https://pioterandrzejewski.github.io/code-playgroundr/">View Demo</a> <br>
+<a href="https://pioterandrzejewski.github.io/code-playground/">View Demo</a> <br>
   <p align="center">
 Interactive web html, css and javascript editor
     <br />
