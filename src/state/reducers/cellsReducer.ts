@@ -34,8 +34,8 @@ const initialState: CellsState = {
       type: "javascript",
       content: `import ReactDOM from 'react-dom';
 
-      const App = () => <h1>Hello</h1>
-      
+      const App = () => <h1 className="heading">Hello world!</h1>
+            
       ReactDOM.render(<App />, document.querySelector("#root"));`,
     },
   },

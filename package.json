@@ -2,6 +2,7 @@
   "name": "code-playground",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://PioterAndrzejewski.github.io/code-playground",
   "dependencies": {
     "@monaco-editor/react": "^4.5.1",
     "@reduxjs/toolkit": "^1.9.5",
@@ -15,6 +16,7 @@
     "axios": "^1.4.0",
     "bulmaswatch": "^0.8.1",
     "esbuild-wasm": "^0.18.11",
+    "gh-pages": "^5.0.0",
     "immer": "^10.0.2",
     "jscodeshift": "^0.15.0",
     "localforage": "^1.10.0",
@@ -34,6 +36,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
