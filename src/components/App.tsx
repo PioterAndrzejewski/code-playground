@@ -3,7 +3,6 @@ import CodeSection from "./CodeSection";
 import Preview from "./Preview";
 import ResizableBox from "./Resizable";
 import { useActions } from "../hooks/useActions";
-import { useTypedSelector } from "../hooks/useTypedSelector";
 import "bulmaswatch/darkly/bulmaswatch.min.css";
 import "./App.css";
 
