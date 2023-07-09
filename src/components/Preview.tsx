@@ -11,6 +11,9 @@ const Preview: React.FC = () => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      body {
+        overflow: hidden;
+      }
       ${data.css.content}
     </style>
   </head>
